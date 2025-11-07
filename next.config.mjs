@@ -1,44 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
-    // Images
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif|webp|ico)$/i,
-      type: "asset/resource",
-    });
+  reactStrictMode: true,
 
-    // SVGs (as React components)
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    });
+  images: {
+    domains: ['example.com'], // Add any domains you use for <Image />
+  },
 
-    // Videos
-    config.module.rules.push({
-      test: /\.(mp4|webm|ogg|mov|avi|mkv)$/i,
-      type: "asset/resource",
-    });
-
-    // Audio
-    config.module.rules.push({
-      test: /\.(mp3|wav|flac|aac|m4a)$/i,
-      type: "asset/resource",
-    });
-
-    // Fonts
-    config.module.rules.push({
-      test: /\.(woff|woff2|eot|ttf|otf)$/i,
-      type: "asset/resource",
-    });
-
-    // Documents / PDFs
-    config.module.rules.push({
-      test: /\.(pdf|doc|docx|xls|xlsx|ppt|pptx)$/i,
-      type: "asset/resource",
-    });
-
-    return config;
+  // ✅ New location for Turbopack config:
+  turbopack: {
+    // Optional: you can enable/disable certain Turbopack options here
+    // Example:
+    // optimizeCss: true,
+    // memoryCache: true,
   },
 };
 

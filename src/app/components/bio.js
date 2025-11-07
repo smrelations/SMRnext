@@ -1,5 +1,5 @@
+import Image from "next/image";
 import React from "react";
-
 const Bio = () => {
   return (
     <section className="px-6 md:px-8 bg-black py-12">
@@ -8,8 +8,8 @@ const Bio = () => {
           
           {/* Image */}
           <div className="w-full max-w-xs md:w-1/4">
-            <img 
-              src="../images/bio.png" 
+            <Image 
+              src="/images/bio.png" 
               alt="Melissa Rodriguez, Founder of SMR" 
               width={400} // adjust width
               height={400} // adjust height

@@ -1,12 +1,11 @@
 "use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const Marquee = ({ reverse = false, text }) => {
   const marqueeRef = useRef(null);
   const [textString, setTextString] = useState(text);
 
-  const generateString = () => {
+  const generateString = useCallback(() => {
     if (marqueeRef.current) {
       const initW = marqueeRef.current.offsetWidth;
       if (initW) {
@@ -18,20 +17,20 @@ const Marquee = ({ reverse = false, text }) => {
         setTextString(finalText);
       }
     }
-  };
+  }, [text]); // ✅ dependency added
 
   useEffect(() => {
     generateString();
     window.addEventListener("resize", generateString);
     return () => window.removeEventListener("resize", generateString);
-  }, [text]);
+  }, [generateString]); // ✅ no warning now
 
   return (
     <div className="w-full overflow-hidden text-xs font-bold uppercase mb-1">
       <div
         ref={marqueeRef}
         aria-hidden="true"
-        className={`whitespace-nowrap inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#f499e8] via-[#babff1] to-[#53d8f7]`}
+        className="whitespace-nowrap inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#f499e8] via-[#babff1] to-[#53d8f7]"
         style={{
           animation: reverse
             ? "ticker-reverse 30s linear infinite"

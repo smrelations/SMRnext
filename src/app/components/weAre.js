@@ -18,14 +18,15 @@ const WeAre = () => {
         <p className="mb-6 text-xl md:text-[1.389vw] leading-tight xl:mt-10">
           For brands who recognize the importance of winning with new Millennial, Gen Z, Hispanic audiences.
         </p>
-       <Link
+      <Link
   href="#contact"
   scroll={false}
   className="block w-full py-4 text-center text-white bg-black border-4 border-black rounded-full 
              md:w-[18vw] md:py-6 md:ml-[calc(4vw+12px)] hover:bg-white hover:text-black xl:mt-12"
 >
-  Let's Talk
+  Let&apos;s Talk
 </Link>
+
       </div>
 
       {/* Image */}
