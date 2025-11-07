@@ -27,7 +27,7 @@ const Marquee = ({ reverse = false, text }) => {
   }, [text]);
 
   return (
-    <div className="w-full overflow-hidden text-xs font-bold uppercase">
+    <div className="w-full overflow-hidden text-xs font-bold uppercase mb-1">
       <div
         ref={marqueeRef}
         aria-hidden="true"

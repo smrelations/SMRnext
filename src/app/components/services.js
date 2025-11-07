@@ -30,7 +30,7 @@ const Services = () => {
       </h2>
 
       {/* Buttons */}
-<div className=" md:text-center md:px-20">
+<div className=" md:text-center md:px-2">
   {buttonText.map((e, i) => (
     <button
       key={i}
